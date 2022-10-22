@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<title>click jacking poc</title>
+
+<body style="text-align:center;">
+    <textarea id="target-url" rows="1" style="width:400px;">https://</textarea>
+    <p>Click to overlay your website</p>
+    <button onclick="loadUrl()">
+        load url
+    </button>
+
+    <iframe id="frame" src="" scrolling="no" frameborder="0" allowfullscreen="allowfullscreen"
+        style="width:100%;height:90%;opacity: 0.1">
+    </iframe>
+
+
+    <script>
+        function loadUrl () {
+            const url = document.getElementById( 'target-url' ).value
+            document.getElementById( 'frame' ).src
+                = url
+            console.log( 'overlay: ' + url )
+        }
+    </script>
+</body>
+
+</html>
+<style type="text/css">
+    <!--
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        margin: 0;
+    }
+    -->
+</style>
